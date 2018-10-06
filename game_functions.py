@@ -51,7 +51,8 @@ def check_aliens_bottom(ai_settings, screen, stats, sb, ship, aliens,
             ship_hit(ai_settings, screen, stats, sb, ship, aliens, bullets, alien_bullets)
             break
 
-def update_aliens(ai_settings, screen, stats, sb, ship, aliens, bullets, alien_bullets):
+def update_aliens(ai_settings, screen, stats, sb, ship, aliens, blue_aliens,
+          bullets, alien_bullets):
     """Update the postions of all aliens in the fleet."""
     """
     Check if the fleet is at an edge,
@@ -59,6 +60,8 @@ def update_aliens(ai_settings, screen, stats, sb, ship, aliens, bullets, alien_b
     """
     check_fleet_edges(ai_settings, aliens)
     aliens.update()
+    blue_aliens.update()
+
 
     # Look for alien-ship collisions.
     if pygame.sprite.spritecollideany(ship, aliens):
@@ -105,13 +108,13 @@ def create_alien(ai_settings, screen, aliens, alien_number, row_number, alien_bu
         green.rect.x = green.x
         green.rect.y = green.rect.height + 2 * green.rect.height * row_number
         aliens.add(green)
-    # elif row_number == 3:
-    #     red = Red(ai_settings, screen)
-    #     red_width = red.rect.width
-    #     red.x = red_width + 2 * red_width * alien_number
-    #     red.rect.x = red.x
-    #     red.rect.y = red.rect.height + 2 * red.rect.height * row_number
-    #     aliens.add(red)
+    elif row_number == 3:
+        red = Red(ai_settings, screen)
+        red_width = red.rect.width
+        red.x = red_width + 2 * red_width * alien_number
+        red.rect.x = red.x
+        red.rect.y = red.rect.height + 2 * red.rect.height * row_number
+        aliens.add(red)
 
 
 def create_fleet(ai_settings, screen, ship, aliens, alien_bullets):
