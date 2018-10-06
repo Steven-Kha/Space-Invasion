@@ -105,13 +105,13 @@ def create_alien(ai_settings, screen, aliens, alien_number, row_number, alien_bu
         green.rect.x = green.x
         green.rect.y = green.rect.height + 2 * green.rect.height * row_number
         aliens.add(green)
-    elif row_number == 3:
-        red = Red(ai_settings, screen)
-        red_width = red.rect.width
-        red.x = red_width + 2 * red_width * alien_number
-        red.rect.x = red.x
-        red.rect.y = red.rect.height + 2 * red.rect.height * row_number
-        aliens.add(red)
+    # elif row_number == 3:
+    #     red = Red(ai_settings, screen)
+    #     red_width = red.rect.width
+    #     red.x = red_width + 2 * red_width * alien_number
+    #     red.rect.x = red.x
+    #     red.rect.y = red.rect.height + 2 * red.rect.height * row_number
+    #     aliens.add(red)
 
 
 def create_fleet(ai_settings, screen, ship, aliens, alien_bullets):
@@ -142,8 +142,8 @@ def check_fleet_edges(ai_settings, aliens):
 def change_fleet_direction(ai_settings, aliens):
     """Drop the entire fleet and change the fleet's direction."""
     # Page 279 for more info
-    for alien in aliens.sprites():
-        alien.rect.y += ai_settings.fleet_drop_speed
+    # for alien in aliens.sprites():
+    #     alien.rect.y += ai_settings.fleet_drop_speed
     ai_settings.fleet_direction *= -1
 
 
@@ -179,11 +179,11 @@ def update_bullets(ai_settings, screen, stats, sb, ship, aliens, bullets,
 
     alien_atk = random.randint(0, len(aliens))
 
-    cur = time.time()
-    sec = cur % 60
+    # cur = time.time()
+    # sec = cur % 60
     x = 0
 
-    if int(sec) % randx == 0 and len(alien_bullets) < ai_settings.a_bullets_allowed and len(aliens) > 0:
+    if len(alien_bullets) < ai_settings.a_bullets_allowed and len(aliens) > 0:
         for alien in aliens.sprites():
             x += 1
             if x == alien_atk:
@@ -201,7 +201,16 @@ def check_bullet_ship_collisions(ai_settings, screen, stats, sb, ship,
 
     for alien_bullet in alien_bullets.copy():
         if alien_bullet.rect.colliderect(ship):
-            ship_hit(ai_settings, screen, stats, sb, ship, aliens, bullets, alien_bullets)
+            if stats.ships_left > 0:
+                stats.ships_left -= 1
+                ship.center_ship()
+                sb.prep_ships()
+                alien_bullets.empty()
+                bullets.empty()
+            else:
+                stats.game_active = False
+                pygame.mouse.set_visible(True)
+
 
 #this function changes the bullet, ship, and alien speed for each level
 def check_bullet_alien_collisions(ai_settings, screen, stats, sb, ship,
@@ -220,9 +229,16 @@ def check_bullet_alien_collisions(ai_settings, screen, stats, sb, ship,
         # If the entire fleet is destroyed, start a new level.
         bullets.empty()
         ai_settings.increase_speed()
-
+        if ai_settings.a_bullets_allowed < 10:
+            ai_settings.a_bullets_allowed += 1
         # Increase level.
         stats.level += 1
+        if stats.level % 3 == 0:
+            ai_settings.a_bullet_height += (1/5)*ai_settings.a_bullet_height
+
+        if stats.level % 4 == 0:
+            ai_settings.a_bullet_speed += (1/5)*ai_settings.a_bullet_speed
+
         sb.prep_level()
 
         create_fleet(ai_settings, screen, ship, aliens, alien_bullets)
@@ -289,6 +305,7 @@ def check_play_button(ai_settings, screen, stats, sb, play_button, ship,
         # Empty the list of aliens and bullets.
         aliens.empty()
         bullets.empty()
+        alien_bullets.empty()
 
         # Create a new fleet and center the ship.
         create_fleet(ai_settings, screen, ship, aliens, alien_bullets)

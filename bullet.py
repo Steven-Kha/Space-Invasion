@@ -52,7 +52,7 @@ class Alien_Bullet(Sprite):
         self.y = float(self.rect.y)
 
         self.color = ai_settings.a_bullet_color
-        self.speed_factor = ai_settings.a_bullet_speed_factor
+        self.speed_factor = ai_settings.a_bullet_speed
 
     def update(self):
         """Move the bullet up the screen."""
