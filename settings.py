@@ -9,6 +9,8 @@ class Settings():
         self.bg_color = (230, 230, 230)
 
         self.destroyed = 0
+        self.destroyed_h = .1
+        self.destroyed_w = .1
 
         # Ship settings
         self.ship_speed_factor = 1.5

@@ -1,3 +1,7 @@
+# def kill():
+#     if self.health < 0:
+#            
+
 import pygame
 from pygame.sprite import Sprite
 import time
@@ -39,15 +43,14 @@ class Alien(Sprite):
     def animate(self):
         self.animate = 0
 
-    def update(self, clock):
+    def  update(self  ):
         """Move the alien right or left."""
-
-              
 
 
         self.x += (self.ai_settings.alien_speed_factor *
                         self.ai_settings.fleet_direction)
         self.rect.x = self.x
+
 
     def blitme(self):
         """Draw the alien at its current location."""
@@ -86,8 +89,12 @@ class Blue(Alien):
     def animate(self):
         self.animate = 0
 
-    def update(self, clock):
+    def update(self):
         time = pygame.time.get_ticks()
+
+        self.x += (self.ai_settings.alien_speed_factor *
+                   self.ai_settings.fleet_direction)
+        self.rect.x = self.x
 
         if self.hit == True:
             if self.animate == 0 and time % 125 == 0:
@@ -101,11 +108,18 @@ class Blue(Alien):
             if self.animate == 2 and time % 125 == 0:
                 self.image = pygame.image.load(self.boom[2])
                 print("Blue explode 3")
+
                 self.animate = 3
             if self.animate == 3 and time % 125 == 1:
-                  
-                 
+                # self.rect = pygame.Rect(0, 0, ai_settings.ball_width,
+                #             ai_settings.ball_height)
+                self.image = pygame.image.load('images/destroyed.png')
+                self.rect = self.image.get_rect()
+                self.ai_settings.destroyed += 1
                 self.hit = False
+                self.animate = 4
+                # self.x = 0
+
 
         else:
             if self.animate == 0 and time % 250 == 0:
@@ -119,9 +133,6 @@ class Blue(Alien):
                 self.animate = 0
 
 
-        self.x += (self.ai_settings.alien_speed_factor *
-                   self.ai_settings.fleet_direction)
-        self.rect.x = self.x
 
 
 class Green(Alien):
@@ -146,15 +157,19 @@ class Green(Alien):
         self.x = float(self.rect.x)
         self.animate = 0
         self.hit = False
-        
+
     def animate(self):
         self.animate = 0
 
     def explosion(self):
         self.hit = True
 
-    def update(self, clock):
+    def  update(self  ):
         time = pygame.time.get_ticks()
+
+        self.x += (self.ai_settings.alien_speed_factor *
+                   self.ai_settings.fleet_direction)
+        self.rect.x = self.x
 
         if self.hit == True:
             if self.animate == 0 and time % 125 == 0:
@@ -167,8 +182,14 @@ class Green(Alien):
                 self.image = pygame.image.load(self.boomG[2])
                 self.animate = 3
             if self.animate == 3 and time % 125 == 1:
-                  
+                self.image = pygame.image.load('images/destroyed.png')
+                self.rect = self.image.get_rect()
+                self.ai_settings.destroyed += 1
                 self.hit = False
+                self.animate = 4
+                # self.x = 0
+
+
         else:
             if self.animate == 0 and time % 250 == 0:
                 self.image = pygame.image.load(self.green[1])
@@ -183,9 +204,7 @@ class Green(Alien):
                 # print(str(inttime))
                 self.animate = 0
 
-        self.x += (self.ai_settings.alien_speed_factor *
-                   self.ai_settings.fleet_direction)
-        self.rect.x = self.x
+
 
 class Red(Alien):
     def __init__(self, ai_settings, screen):
@@ -213,12 +232,16 @@ class Red(Alien):
 
     def explosion(self):
         self.hit = True
-        
+
     def animate(self):
         self.animate = 0
 
-    def update(self, clock):
+    def  update(self  ):
         time = pygame.time.get_ticks()
+
+        self.x += (self.ai_settings.alien_speed_factor *
+                   self.ai_settings.fleet_direction)
+        self.rect.x = self.x
 
         if self.hit == True:
             if self.animate == 0 and time % 125 == 0:
@@ -231,8 +254,14 @@ class Red(Alien):
                 self.image = pygame.image.load(self.boomR[2])
                 self.animate = 3
             if self.animate == 3 and time % 125 == 1:
-                  
+                self.image = pygame.image.load('images/destroyed.png')
+                self.rect = self.image.get_rect()
+                self.ai_settings.destroyed += 1
                 self.hit = False
+                self.animate = 4
+
+
+                   
         else:
             if self.animate == 0 and time % 250 == 0:
                 self.image = pygame.image.load(self.red[1])
@@ -247,6 +276,4 @@ class Red(Alien):
                 # print(str(inttime))
                 self.animate = 0
 
-        self.x += (self.ai_settings.alien_speed_factor *
-                   self.ai_settings.fleet_direction)
-        self.rect.x = self.x
+

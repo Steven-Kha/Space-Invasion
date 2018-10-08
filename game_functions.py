@@ -19,27 +19,27 @@ def check_high_score(stats, sb):
 def ship_hit(ai_settings, screen, stats, sb, ship, aliens, bullets, alien_bullets):
     """Respond to ship being hit by alien."""
 
-    if stats.ships_left > 0:
-        # Decrement ships_left.
-        stats.ships_left -= 1
-
-        # Update scoreboard.
-        sb.prep_ships()
-
-        # Empty the list of aliens and bullets.
-        aliens.empty()
-        bullets.empty()
-
-        # Create a new fleet and center the ship.
-        create_fleet(ai_settings, screen, ship, aliens, alien_bullets)
-        ship.center_ship()
-
-        # Pause.
-        sleep(0.5)
-
-    else:
-        stats.game_active = False
-        pygame.mouse.set_visible(True)
+    # if stats.ships_left > 0:
+    #     # Decrement ships_left.
+    #     stats.ships_left -= 1
+    #
+    #     # Update scoreboard.
+    #     sb.prep_ships()
+    #
+    #     # Empty the list of aliens and bullets.
+    #     aliens.empty()
+    #     bullets.empty()
+    #
+    #     # Create a new fleet and center the ship.
+    #     create_fleet(ai_settings, screen, ship, aliens, alien_bullets)
+    #     ship.center_ship()
+    #
+    #     # Pause.
+    #     sleep(0.5)
+    print("Do nothing")
+    # else:
+    #     stats.game_active = False
+    #     pygame.mouse.set_visible(True)
 
 def check_aliens_bottom(ai_settings, screen, stats, sb, ship, aliens,
         bullets, alien_bullets):
@@ -59,7 +59,7 @@ def update_aliens(ai_settings, screen, stats, sb, ship, aliens, blue_aliens,
     and then update the postions of all aliens in the fleet.
     """
     check_fleet_edges(ai_settings, aliens)
-    aliens.update(clock)
+    aliens.update()
     # blue_aliens.update()
 
 
@@ -86,29 +86,29 @@ def get_number_aliens_x(ai_settings, alien_width):
 
 def create_alien(ai_settings, screen, aliens, alien_number, row_number, alien_bullets):
     """Create an alien and place it in the row."""
+    # if row_number == 0:
+    #     alien = Blue(ai_settings, screen)
+    #     alien_width = alien.rect.width
+    #     # alien.x = alien_width + alien_width * alien_number
+    #     alien.x = alien_width + 2 * alien_width * alien_number
+    #     alien.rect.x = alien.x
+    #     alien.rect.y = alien.rect.height + 2 * alien.rect.height * row_number
+    #     aliens.add(alien)
     if row_number == 0:
-        alien = Alien(ai_settings, screen)
-        alien_width = alien.rect.width
-        # alien.x = alien_width + alien_width * alien_number
-        alien.x = alien_width + 2 * alien_width * alien_number
-        alien.rect.x = alien.x
-        alien.rect.y = alien.rect.height + 2 * alien.rect.height * row_number
-        aliens.add(alien)
-    elif row_number == 1:
         blue = Blue(ai_settings, screen)
         blue_width = blue.rect.width
         blue.x = blue_width + 2 * blue_width * alien_number
         blue.rect.x = blue.x
         blue.rect.y = blue.rect.height + 2 * blue.rect.height * row_number
         aliens.add(blue)
-    elif row_number == 2:
+    elif row_number == 1:
         green = Green(ai_settings, screen)
         green_width = green.rect.width
         green.x = green_width + 2 * green_width * alien_number
         green.rect.x = green.x
         green.rect.y = green.rect.height + 2 * green.rect.height * row_number
         aliens.add(green)
-    elif row_number == 3:
+    elif row_number == 2:
         red = Red(ai_settings, screen)
         red_width = red.rect.width
         red.x = red_width + 2 * red_width * alien_number
@@ -235,14 +235,9 @@ def check_bullet_alien_collisions(ai_settings, screen, stats, sb, ship,
     for bullet in bullets.copy():
         for alien in aliens.copy():
             if bullet.rect.colliderect(alien):
-                # bullets.remove(bullet)
+                bullets.remove(bullet)
                 alien.explosion()
                 stats.score += ai_settings.alien_points * len(aliens)
-                ai_settings.destroyed += 1
-
-                if time % 10 == 0:
-                    print ("Does this actually work?")
-                    aliens.remove(alien)
                 print ("aliens: " + str(len(aliens)))
                 print("destroyed: " + str(ai_settings.destroyed))
                 sb.prep_score()
@@ -257,13 +252,16 @@ def check_bullet_alien_collisions(ai_settings, screen, stats, sb, ship,
     #         check_high_score(stats, sb)
 
 
-    if len(aliens) == 0:
-
+    if len(aliens) <= ai_settings.destroyed:
+        pygame.time.delay(500)
+        ai_settings.destroyed = 0
         print("destroyed: " + str(ai_settings.destroyed))
         # If the entire fleet is destroyed, start a new level.
-        for alien in aliens.copy():
-            alien.animate()
+        # for alien in aliens.copy():
+        #     alien.animate()
+        aliens.empty()
         bullets.empty()
+        alien_bullets.empty()
         ai_settings.increase_speed()
         if ai_settings.a_bullets_allowed < 10:
             ai_settings.a_bullets_allowed += 1
@@ -271,9 +269,10 @@ def check_bullet_alien_collisions(ai_settings, screen, stats, sb, ship,
         stats.level += 1
         if stats.level % 3 == 0:
             ai_settings.a_bullet_height += (1/5)*ai_settings.a_bullet_height
+            ai_settings.a_bullet_width += (1/5)*ai_settings.a_bullet_width
 
-        if stats.level % 4 == 0:
-            ai_settings.a_bullet_speed += (1/5)*ai_settings.a_bullet_speed
+        if stats.level % 2 == 0:
+            ai_settings.a_bullet_speed += (2/5)*ai_settings.a_bullet_speed
 
         sb.prep_level()
 
