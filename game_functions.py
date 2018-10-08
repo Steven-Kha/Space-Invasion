@@ -1,14 +1,14 @@
 import sys
 from time import sleep
 from alien import Alien
-from alien import Blue
-from alien import Green
-from alien import Red
 import pygame
 import time
 import random
 from bullet import Alien_Bullet
 from bullet import Bullet
+from alien import Blue
+from alien import Green
+from alien import Red
 
 def check_high_score(stats, sb):
     """Check to see if there's a new high score."""
@@ -51,8 +51,8 @@ def check_aliens_bottom(ai_settings, screen, stats, sb, ship, aliens,
             ship_hit(ai_settings, screen, stats, sb, ship, aliens, bullets, alien_bullets)
             break
 
-def update_aliens(ai_settings, screen, stats, sb, ship, aliens, blue_aliens,
-          bullets, alien_bullets, clock):
+def update_aliens(ai_settings, screen, stats, sb, ship, aliens,
+          bullets, alien_bullets):
     """Update the postions of all aliens in the fleet."""
     """
     Check if the fleet is at an edge,
@@ -346,7 +346,7 @@ def check_play_button(ai_settings, screen, stats, sb, play_button, ship,
         create_fleet(ai_settings, screen, ship, aliens, alien_bullets)
         ship.center_ship()
 
-def update_screen(ai_settings, screen, stats, sb, ship, aliens, bullets,
+def update_screen(ai_settings, screen, stats, sb, ship, aliens, title, bullets,
                 alien_bullets, play_button):
     """Update images on the screen and flip to the new screen."""
     # Redraw the screen during each pass through the loop.
@@ -367,6 +367,18 @@ def update_screen(ai_settings, screen, stats, sb, ship, aliens, bullets,
 
     # Draw the play button if the game is inactive.
     if not stats.game_active:
+
+        screen.fill(ai_settings.start_color)
+        title.prep_title("SPACE")
+        title.prep_rules("INVADERS")
+        title.prep_blue_msg("30 PTS")
+        title.prep_red_msg("10 PTS")
+        title.prep_green_msg("20 PTS")
+        title.prep_high_score(str(stats.high_score))
+
+        title.draw_button()
+
+
         play_button.draw_button()
 
     # Make the most recently drawn screen visible.

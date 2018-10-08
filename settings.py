@@ -8,6 +8,8 @@ class Settings():
         self.screen_height = 800
         self.bg_color = (230, 230, 230)
 
+        self.start_color = (0, 0, 0)
+
         self.destroyed = 0
         self.destroyed_h = .1
         self.destroyed_w = .1

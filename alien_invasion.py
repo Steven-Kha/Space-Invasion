@@ -7,7 +7,11 @@ from game_stats import GameStats
 from scoreboard import Scoreboard
 from button import Button
 from ship import Ship
+from title import Title
 import game_functions as gf
+# from alien import Blue
+# from alien import Green
+# from alien import Red
 clock = pygame.time.Clock()
 clock.tick(10)
 print("running ticks: " + str(clock.tick(60)))
@@ -34,22 +38,31 @@ def run_game():
     stats = GameStats(ai_settings)
     # Create an instance to store game statistics and create a scoreboard.
     sb = Scoreboard(ai_settings, screen, stats)
+    title = Title(ai_settings, screen, "", stats)
+
 
     # Make a ship, a group of bullets, and a group of aliens.
 
     ship = Ship(ai_settings, screen)
 
     # Make a group to store bullets in.
+    # blue = Blue(ai_settings, screen)
+    # red = Red(ai_settings, screen)
+    # green = Green(ai_settings, screen)
     bullets = Group()
     alien_bullets = Group()
     aliens = Group()
-    blue_aliens = Group()
 
     # Create the fleet of aliens.
     gf.create_fleet(ai_settings, screen, ship, aliens, alien_bullets)
 
     # Start the main loop for the game.
     while True:
+        title.prep_title("")
+        title.prep_rules("")
+        title.prep_blue_msg("")
+        title.prep_red_msg("")
+        title.prep_green_msg("")
         gf.check_events(ai_settings, screen, stats, sb, play_button, ship,
             aliens, bullets, alien_bullets)
 
@@ -63,10 +76,10 @@ def run_game():
             gf.update_bullets(ai_settings, screen, stats, sb, ship, aliens,
                 bullets, alien_bullets)
             # print(len(bullets))
-            gf.update_aliens(ai_settings, screen, stats, sb, ship, aliens, blue_aliens,
-                bullets, alien_bullets, clock)
+            gf.update_aliens(ai_settings, screen, stats, sb, ship, aliens,
+                bullets, alien_bullets)
 
         gf.update_screen(ai_settings, screen, stats, sb, ship, aliens,
-                             bullets, alien_bullets, play_button)
+                         title, bullets, alien_bullets, play_button)
 
 run_game()
