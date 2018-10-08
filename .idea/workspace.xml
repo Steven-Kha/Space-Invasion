@@ -2,23 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b256c8ba-804a-42dc-b040-c2efc7f4c2da" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/images/GreenEx_3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/GreenEx_4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/GreenEx_5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/ShipExplode01.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/ShipExplode02.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/ShipExplode03.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/ShipExplode04.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/ShipExplode05.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/ShipExplode06.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/ShipExplode07.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/ShipExplode08.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/ShipExplode09.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/blueEx1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/blueEx2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/blueEx3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/delete.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/alien.py" beforeDir="false" afterPath="$PROJECT_DIR$/alien.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/alien_invasion.py" beforeDir="false" afterPath="$PROJECT_DIR$/alien_invasion.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game_functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/game_functions.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/blue_explode3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/blue_explode4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/blue_explode5.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/ship.py" beforeDir="false" afterPath="$PROJECT_DIR$/ship.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -35,11 +28,11 @@
             <file pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/ship.py">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="236">
-                    <caret line="41" column="17" selection-start-line="41" selection-start-column="8" selection-end-line="41" selection-end-column="17" />
+                  <state relative-caret-position="290">
+                    <caret line="47" column="16" selection-start-line="47" selection-start-column="14" selection-end-line="47" selection-end-column="16" />
                     <folding>
                       <element signature="e#0#13#0" expanded="true" />
-                      <marker date="1538956106324" expanded="true" signature="1638:1669" ph="..." />
+                      <marker date="1538963436429" expanded="true" signature="1609:1615" ph="..." />
                     </folding>
                   </state>
                 </provider>
@@ -64,97 +57,42 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="py" value="17" />
+          <entry key="png" value="16" />
+          <entry key="py" value="19" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Python" value="17" />
+          <entry key="Image" value="16" />
+          <entry key="Python" value="19" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PLAIN_TEXT" value="80" />
-          <entry key="Python" value="3774" />
+          <entry key="PLAIN_TEXT" value="122" />
+          <entry key="Python" value="5622" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages" />
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="3774" />
-          <entry key="txt" value="80" />
+          <entry key="py" value="5622" />
+          <entry key="txt" value="122" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/alien.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="22" column="43" lean-forward="true" selection-start-line="22" selection-start-column="43" selection-end-line="22" selection-end-column="43" />
+            <state relative-caret-position="215">
+              <caret line="104" column="60" lean-forward="true" selection-start-line="104" selection-start-column="60" selection-end-line="104" selection-end-column="60" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
-                <marker date="1538957801552" expanded="true" signature="2143:2144" ph="..." />
+                <marker date="1538964337354" expanded="true" signature="1053:1093" ph="..." />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/pygame/sprite.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="418">
-              <caret line="461" selection-start-line="461" selection-end-line="461" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/alien_invasion.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-412">
-              <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-              <folding>
-                <element signature="e#12#25#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/bullet.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="146">
-              <caret line="54" column="54" selection-start-line="54" selection-start-column="54" selection-end-line="54" selection-end-column="54" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/settings.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="23" column="31" selection-start-line="23" selection-start-column="31" selection-end-line="23" selection-end-column="31" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/game_stats.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" column="22" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="22" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/comments.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="21" column="40" lean-forward="true" selection-start-line="21" selection-start-column="40" selection-end-line="21" selection-end-column="40" />
             </state>
           </provider>
         </entry>
@@ -162,10 +100,22 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/game_functions.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3179">
-              <caret line="187" column="17" selection-start-line="187" selection-start-column="17" selection-end-line="187" selection-end-column="17" />
+            <state relative-caret-position="-115">
+              <caret line="334" column="39" selection-start-line="334" selection-start-column="33" selection-end-line="334" selection-end-column="39" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/alien_invasion.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="140">
+              <caret line="59" column="29" selection-start-line="59" selection-start-column="23" selection-end-line="59" selection-end-column="29" />
+              <folding>
+                <element signature="e#12#25#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -175,46 +125,52 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>remainder</find>
-      <find>explode</find>
-      <find>rema</find>
-      <find>remainder</find>
-      <find>hit</find>
-      <find>ship</find>
-      <find>60</find>
-      <find>bullet_ship</find>
-      <find>explode[</find>
-      <find>time</find>
-      <find>ship.center</find>
-      <find>def update(self</find>
-      <find>clock</find>
-      <find>update(self</find>
-      <find>animate</find>
-      <find>ani</find>
-      <find>360</find>
-      <find>running</find>
-      <find>clock.get_fps()</find>
-      <find>runn</find>
       <find>%2</find>
       <find>% 2</find>
       <find>% 55</find>
       <find>opens</find>
       <find>update_alien</find>
       <find>update_bullet</find>
-      <find>update_aliens</find>
       <find>500</find>
       <find>% 111</find>
+      <find>250self.hit = False</find>
+      <find>time =</find>
+      <find>bullet_alien bookmar</find>
       <find>def update</find>
+      <find>Blue ex</find>
+      <find>remove</find>
+      <find>explosion</find>
+      <find>boom</find>
+      <find>Red</find>
+      <find>green</find>
+      <find>values</find>
+      <find>self.blue</find>
+      <find>update_aliens</find>
+      <find>Blue</find>
+      <find>self.boom</find>
+      <find>167</find>
+      <find>print</find>
+      <find>900</find>
+      <find>bullet_ship</find>
+      <find>alien</find>
+      <find>bullet_alien</find>
+      <find>center</find>
     </findStrings>
     <replaceStrings>
       <replace>time</replace>
       <replace>% 111</replace>
       <replace>% 500</replace>
       <replace>time = pygame.time.get_ticks()</replace>
-      <replace>self.explode[</replace>
-      <replace>360</replace>
       <replace>% 55</replace>
       <replace>250</replace>
+      <replace>green</replace>
+      <replace>red</replace>
+      <replace>self.hit = False</replace>
+      <replace>360</replace>
+      <replace>blue</replace>
+      <replace>125</replace>
+      <replace>900, 900, 900, 900</replace>
+      <replace>self.explode[</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -225,19 +181,19 @@
       <list>
         <option value="$PROJECT_DIR$/bullet.py" />
         <option value="$PROJECT_DIR$/game_stats.py" />
-        <option value="$PROJECT_DIR$/ship.py" />
-        <option value="$PROJECT_DIR$/game_functions.py" />
         <option value="$PROJECT_DIR$/alien_invasion.py" />
         <option value="$PROJECT_DIR$/settings.py" />
+        <option value="$PROJECT_DIR$/game_functions.py" />
+        <option value="$PROJECT_DIR$/ship.py" />
         <option value="$PROJECT_DIR$/alien.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="415" />
-    <option name="y" value="-8" />
-    <option name="width" value="1617" />
-    <option name="height" value="1304" />
+    <option name="x" value="-9" />
+    <option name="y" value="-9" />
+    <option name="width" value="1938" />
+    <option name="height" value="1098" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -340,13 +296,40 @@
       <option name="project" value="LOCAL" />
       <updated>1538849201356</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="explosive frames per second">
+      <created>1538958941638</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1538958941639</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="878" extended-state="6" />
     <editor active="true" />
     <layout>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24983476" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32885906" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.32885906" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Python Console" order="10" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+    <layout-to-restore>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24983476" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
@@ -358,26 +341,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.32931727" />
-      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Python Console" order="10" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-    </layout>
-    <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.24983476" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32885906" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.32931727" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.32885906" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Python Console" order="10" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -391,20 +355,14 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="bullets setting change per level" />
     <MESSAGE value="animate aliens" />
-    <option name="LAST_COMMIT_MESSAGE" value="animate aliens" />
+    <MESSAGE value="explosive frames per second" />
+    <option name="LAST_COMMIT_MESSAGE" value="explosive frames per second" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/comments.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
           <caret line="21" column="40" lean-forward="true" selection-start-line="21" selection-start-column="40" selection-end-line="21" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/game_stats.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="22" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="22" />
         </state>
       </provider>
     </entry>
@@ -415,58 +373,104 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/images/blue_explode3.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/blue_explode4.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/blue_explode5.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/delete.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/pygame/sprite.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="461" selection-start-line="461" selection-end-line="461" />
+        <state relative-caret-position="150">
+          <caret line="162" selection-start-line="162" selection-end-line="162" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/game_functions.py">
+    <entry file="file://$PROJECT_DIR$/game_stats.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3179">
-          <caret line="187" column="17" selection-start-line="187" selection-start-column="17" selection-end-line="187" selection-end-column="17" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="17">
+          <caret line="1" column="38" selection-start-line="1" selection-start-column="38" selection-end-line="1" selection-end-column="38" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="23" column="31" selection-start-line="23" selection-start-column="31" selection-end-line="23" selection-end-column="31" />
+        <state relative-caret-position="140">
+          <caret line="56" column="57" selection-start-line="56" selection-start-column="51" selection-end-line="56" selection-end-column="57" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/RedEx_3.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/RedEx_5.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/GreenEx_4.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/blueEx1.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/blueEx3.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/blueEx2.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/RedEx_4.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/GreenEx_5.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/GreenEx_3.png">
+      <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://$PROJECT_DIR$/ship.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="236">
-          <caret line="41" column="17" selection-start-line="41" selection-start-column="8" selection-end-line="41" selection-end-column="17" />
+        <state relative-caret-position="290">
+          <caret line="47" column="16" selection-start-line="47" selection-start-column="14" selection-end-line="47" selection-end-column="16" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
-            <marker date="1538956106324" expanded="true" signature="1638:1669" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/alien.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="43" lean-forward="true" selection-start-line="22" selection-start-column="43" selection-end-line="22" selection-end-column="43" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-            <marker date="1538957801552" expanded="true" signature="2143:2144" ph="..." />
+            <marker date="1538963436429" expanded="true" signature="1609:1615" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/alien_invasion.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-412">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        <state relative-caret-position="140">
+          <caret line="59" column="29" selection-start-line="59" selection-start-column="23" selection-end-line="59" selection-end-column="29" />
           <folding>
             <element signature="e#12#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/game_functions.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-115">
+          <caret line="334" column="39" selection-start-line="334" selection-start-column="33" selection-end-line="334" selection-end-column="39" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alien.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="215">
+          <caret line="104" column="60" lean-forward="true" selection-start-line="104" selection-start-column="60" selection-end-line="104" selection-end-column="60" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+            <marker date="1538964337354" expanded="true" signature="1053:1093" ph="..." />
           </folding>
         </state>
       </provider>

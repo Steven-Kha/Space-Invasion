@@ -42,9 +42,6 @@ class Ship(Sprite):
     def explosion(self):
         self.hit = True
 
-    def endExplosion(self):
-        self.hit = False
-
     def update(self, clock):
         """Update the ship's position based on the movement flag."""
         # Update the ship's center value, not the rect.
@@ -54,7 +51,7 @@ class Ship(Sprite):
         # self.sec = self.cur % 60
         # clock.get_time()
         time = pygame.time.get_ticks()
-        print ("get ticks: " + str(time))
+        # print ("get ticks: " + str(time))
 
         if self.hit == True:
             print("hit == true")

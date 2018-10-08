@@ -224,13 +224,31 @@ def check_bullet_alien_collisions(ai_settings, screen, stats, sb, ship,
             aliens, bullets, alien_bullets):
     """Respond to bullet-alien collisions."""
     # Remove any bullets and aliens that have collided.
-    collisions = pygame.sprite.groupcollide(bullets, aliens, True, True)
+    # collisions = pygame.sprite.groupcollide(bullets, aliens, True, True)
+    #
+    # if collisions:
+    #     for aliens in collisions.values():
+    #         stats.score += ai_settings.alien_points * len(aliens)
+    #         sb.prep_score()
+    #     check_high_score(stats, sb)
 
-    if collisions:
-        for aliens in collisions.values():
-            stats.score += ai_settings.alien_points * len(aliens)
-            sb.prep_score()
-        check_high_score(stats, sb)
+    for bullet in bullets.copy():
+        for alien in aliens.copy():
+            if bullet.rect.colliderect(alien):
+                bullets.remove(bullet)
+                alien.explosion()
+                stats.score += ai_settings.alien_points * len(aliens)
+                sb.prep_score()
+
+                # aliens.remove(alien)
+            check_high_score(stats, sb)
+
+    # if collisions:
+    #     for aliens in collisions.values():
+    #             stats.score += ai_settings.alien_points * len(aliens)
+    #             sb.prep_score()
+    #         check_high_score(stats, sb)
+
 
     if len(aliens) == 0:
         # If the entire fleet is destroyed, start a new level.
