@@ -12,9 +12,16 @@ from alien import Red
 
 def check_high_score(stats, sb):
     """Check to see if there's a new high score."""
+
     if stats.score > stats.high_score:
         stats.high_score = stats.score
+        hi_score = str(stats.high_score)
         sb.prep_high_score()
+        foo = open("foo.txt", "w")
+        foo.write(hi_score)
+        foo.close()
+
+
 
 def ship_hit(ai_settings, screen, stats, sb, ship, aliens, bullets, alien_bullets):
     """Respond to ship being hit by alien."""

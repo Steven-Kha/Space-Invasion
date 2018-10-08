@@ -36,6 +36,15 @@ def run_game():
 
     # Create an instance to store game statistics.
     stats = GameStats(ai_settings)
+    # foo = open("foo.txt", "w")
+    # foo.write("0")
+    # foo.close()
+    fo = open("foo.txt", "r+")
+    stats.high_score = int(fo.read(10))
+    fo.close()
+    print("hiscore: " + str(stats.high_score))
+
+
     # Create an instance to store game statistics and create a scoreboard.
     sb = Scoreboard(ai_settings, screen, stats)
     title = Title(ai_settings, screen, "", stats)
