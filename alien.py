@@ -33,6 +33,7 @@ class Alien(Sprite):
             return True
 
     def explosion(self):
+        self.hit = True
         print("Yellow destroyed")
 
     def update(self, clock):
