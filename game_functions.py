@@ -11,53 +11,30 @@ from alien import Green
 from alien import Red
 
 def update_high_score(stats, sb):
-    if stats.score > stats.high_score:
+    if stats.score > stats.high_score and stats.score > stats.high_score2:
         # sb.prep_high_score()
         oldfirst = stats.high_score
         oldsecond = stats.high_score2
 
         # stats.high_score2 = stats.score
-
         stats.high_score2 = oldfirst
         stats.high_score3 = oldsecond
         stats.high_score = stats.score
 
 
-        hi_score = str(stats.high_score)
-        hi_score2 = str(stats.high_score2)
-        hi_score3 = str(stats.high_score3)
-
-
-        foo = open("foo.txt", "w")
-        foo.write(hi_score + '\n' + hi_score2 + '\n' +
-                  hi_score3)
-        foo.close()
-
-    elif stats.score > stats.high_score2:
+    elif stats.score > stats.high_score2 and stats.score < stats.high_score:
         temp = stats.high_score2
 
         stats.high_score2 = stats.score
         stats.high_score3 = temp
 
-        hi_score = str(stats.high_score)
-        hi_score2 = str(stats.high_score2)
-        hi_score3 = str(stats.high_score3)
-
-        foo = open("foo.txt", "w")
-        foo.write(hi_score + '\n' + hi_score2 + '\n' +
-                  hi_score3)
-        foo.close()
-    elif stats.score > stats.high_score3:
+    elif stats.score > stats.high_score3 and stats.score < stats.high_score2:
         stats.high_score3 = stats.score
 
-        hi_score = str(stats.high_score)
-        hi_score2 = str(stats.high_score2)
-        hi_score3 = str(stats.high_score3)
-
-        foo = open("foo.txt", "w")
-        foo.write(hi_score + '\n' + hi_score2 + '\n' +
-                  hi_score3)
-        foo.close()
+    foo = open("foo.txt", "w")
+    foo.write(str(stats.high_score) + '\n' + str(stats.high_score2) + '\n' +
+              str(stats.high_score3))
+    foo.close()
 
 
 def check_high_score(stats, sb):
@@ -384,7 +361,7 @@ def check_hiscore_button(hi_button, ai_settings, screen,
     button_clicked = hi_button.rect.collidepoint(mouse_x, mouse_y)
     if button_clicked and not stats.game_active:
         stats.hiscore_active = True
-        print("TOASTY")
+        # print("TOASTY")
 
 
 def check_play_button(ai_settings, screen, stats, sb, play_button, ship,
