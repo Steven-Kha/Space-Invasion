@@ -10,6 +10,7 @@ class Settings():
 
         self.start_color = (0, 0, 0)
 
+        self.alien_atk = 4
         self.destroyed = 0
         self.destroyed_h = .1
         self.destroyed_w = .1

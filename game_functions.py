@@ -13,22 +13,26 @@ from alien import Red
 def update_high_score(stats, sb):
     if stats.score > stats.high_score:
         # sb.prep_high_score()
-        temp = stats.high_score
-        temp2 = stats.high_score2
+        oldfirst = stats.high_score
+        oldsecond = stats.high_score2
 
+        # stats.high_score2 = stats.score
+
+        stats.high_score2 = oldfirst
+        stats.high_score3 = oldsecond
         stats.high_score = stats.score
-        stats.high_score2 = temp
-        stats.high_score3 = temp2
+
 
         hi_score = str(stats.high_score)
         hi_score2 = str(stats.high_score2)
         hi_score3 = str(stats.high_score3)
 
-        sb.prep_high_score()
+
         foo = open("foo.txt", "w")
         foo.write(hi_score + '\n' + hi_score2 + '\n' +
                   hi_score3)
         foo.close()
+
     elif stats.score > stats.high_score2:
         temp = stats.high_score2
 
@@ -38,7 +42,7 @@ def update_high_score(stats, sb):
         hi_score = str(stats.high_score)
         hi_score2 = str(stats.high_score2)
         hi_score3 = str(stats.high_score3)
-        sb.prep_high_score()
+
         foo = open("foo.txt", "w")
         foo.write(hi_score + '\n' + hi_score2 + '\n' +
                   hi_score3)
@@ -49,7 +53,7 @@ def update_high_score(stats, sb):
         hi_score = str(stats.high_score)
         hi_score2 = str(stats.high_score2)
         hi_score3 = str(stats.high_score3)
-        sb.prep_high_score()
+
         foo = open("foo.txt", "w")
         foo.write(hi_score + '\n' + hi_score2 + '\n' +
                   hi_score3)
@@ -235,7 +239,7 @@ def update_bullets(ai_settings, screen, stats, sb, ship, aliens, bullets,
     if time % 500 == 0 and len(alien_bullets) < ai_settings.a_bullets_allowed and len(aliens) > 0:
         for alien in aliens.sprites():
             x += 1
-            if x == alien_atk or x*4 == alien_atk:
+            if x == alien_atk or x*ai_settings.alien_atk == alien_atk:
                 new_alien_bullet = Alien_Bullet(ai_settings, screen, alien)
                 alien_bullets.add(new_alien_bullet)
 
@@ -298,9 +302,15 @@ def check_bullet_alien_collisions(ai_settings, screen, stats, sb, ship,
     #             stats.score += ai_settings.alien_points * len(aliens)
     #             sb.prep_score()
     #         check_high_score(stats, sb)
+    speed_up = True
+    if ai_settings.destroyed == int(len(aliens)* 7/10) and speed_up:
+        pygame.mixer.music.load('music\doxent_-_Haze_Speedup.wav')
+        pygame.mixer.music.play()
+        speed_up = False
 
-
-    if len(aliens) <= ai_settings.destroyed:
+    if len(aliens) == ai_settings.destroyed:
+        pygame.mixer.music.load('music\doxent_-_Haze.mp3')
+        pygame.mixer.music.play()
         pygame.time.delay(500)
         ai_settings.destroyed = 0
         print("destroyed: " + str(ai_settings.destroyed))
@@ -318,6 +328,7 @@ def check_bullet_alien_collisions(ai_settings, screen, stats, sb, ship,
         if stats.level % 3 == 0:
             ai_settings.a_bullet_height += (1/5)*ai_settings.a_bullet_height
             ai_settings.a_bullet_width += (1/5)*ai_settings.a_bullet_width
+            ai_settings.alien_atk -= 1
 
         if stats.level % 2 == 0:
             ai_settings.a_bullet_speed += (2/5)*ai_settings.a_bullet_speed
@@ -382,6 +393,9 @@ def check_play_button(ai_settings, screen, stats, sb, play_button, ship,
     button_clicked = play_button.rect.collidepoint(mouse_x, mouse_y)
     if button_clicked and not stats.game_active:
         # Reset the game settings.
+        pygame.mixer.init()
+        pygame.mixer.music.load('Music\doxent_-_Haze.mp3')
+        pygame.mixer.music.play(-1)
         ai_settings.initialize_dynamic_settings()
 
         stats.reset_stats()
@@ -404,6 +418,7 @@ def check_play_button(ai_settings, screen, stats, sb, play_button, ship,
         ai_settings.ship_speed_factor = 1.5
         ai_settings.bullet_speed_factor = 3
         ai_settings.alien_speed_factor = .8
+        ai_settings.destroyed = 0
 
         # Empty the list of aliens and bullets.
         aliens.empty()

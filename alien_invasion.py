@@ -19,7 +19,6 @@ print("running ticks: " + str(clock.tick(60)))
 clock.get_fps()
 print("Running get fps" + str(clock.get_fps()))
 
-
 def run_game():
 
     # Initialize game and create a screen object.
