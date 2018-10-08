@@ -52,15 +52,15 @@ def check_aliens_bottom(ai_settings, screen, stats, sb, ship, aliens,
             break
 
 def update_aliens(ai_settings, screen, stats, sb, ship, aliens, blue_aliens,
-          bullets, alien_bullets):
+          bullets, alien_bullets, clock):
     """Update the postions of all aliens in the fleet."""
     """
     Check if the fleet is at an edge,
     and then update the postions of all aliens in the fleet.
     """
     check_fleet_edges(ai_settings, aliens)
-    aliens.update()
-    blue_aliens.update()
+    aliens.update(clock)
+    # blue_aliens.update()
 
 
     # Look for alien-ship collisions.
@@ -177,19 +177,18 @@ def update_bullets(ai_settings, screen, stats, sb, ship, aliens, bullets,
         if alien_bullet.rect.bottom >= 1200:
             alien_bullets.remove(alien_bullet)
 
-    randx = random.randint(30, 60)
-
-
+    randx = random.randint(1, 10)
+    # randtime = random.randint(1995, 2005)
+    # preven shooting every time
     alien_atk = random.randint(0, len(aliens))
 
-    # cur = time.time()
-    # sec = cur % 60
+    time = pygame.time.get_ticks()
     x = 0
 
-    if len(alien_bullets) < ai_settings.a_bullets_allowed and len(aliens) > 0:
+    if time % 500 == 0 and len(alien_bullets) < ai_settings.a_bullets_allowed and len(aliens) > 0:
         for alien in aliens.sprites():
             x += 1
-            if x == alien_atk:
+            if x == alien_atk or x*4 == alien_atk:
                 new_alien_bullet = Alien_Bullet(ai_settings, screen, alien)
                 alien_bullets.add(new_alien_bullet)
 
@@ -198,6 +197,7 @@ def update_bullets(ai_settings, screen, stats, sb, ship, aliens, bullets,
     check_bullet_ship_collisions(ai_settings, screen, stats, sb, ship,
         aliens, bullets, alien_bullets)
 
+    # ship.endExplosion()
 
 def check_bullet_ship_collisions(ai_settings, screen, stats, sb, ship,
         aliens, bullets, alien_bullets):
@@ -205,14 +205,18 @@ def check_bullet_ship_collisions(ai_settings, screen, stats, sb, ship,
     for alien_bullet in alien_bullets.copy():
         if alien_bullet.rect.colliderect(ship):
             if stats.ships_left > 0:
-                stats.ships_left -= 1
-                ship.center_ship()
-                sb.prep_ships()
                 alien_bullets.empty()
                 bullets.empty()
+                ship.explosion()
+                # ship.center_ship()
+                pygame.time.delay(500)
+                stats.ships_left -= 1
+                sb.prep_ships()
+
             else:
                 stats.game_active = False
                 pygame.mouse.set_visible(True)
+
 
 
 #this function changes the bullet, ship, and alien speed for each level

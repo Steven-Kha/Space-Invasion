@@ -22,6 +22,7 @@ class Alien(Sprite):
 
         # Store the alien's exact position.
         self.x = float(self.rect.x)
+        self.hit = True
 
     def check_edges(self):
         """Return True if alien is at edge of screen."""
@@ -31,7 +32,7 @@ class Alien(Sprite):
         elif self.rect.left <= 0:
             return True
 
-    def update(self):
+    def update(self, clock):
         """Move the alien right or left."""
 
         self.x += (self.ai_settings.alien_speed_factor *
@@ -63,22 +64,20 @@ class Blue(Alien):
         # Store the alien's exact position.
         self.x = float(self.rect.x)
         self.animate = 0
+        self.hit = True
 
-    def update(self):
-        self.cur = time.time()
-        self.sec = self.cur
+    def update(self, clock):
+        time = pygame.time.get_ticks()
 
-        if self.animate == 0 and int(self.sec) % 2 == 0:
+        if self.animate == 0 and  time % 250 == 0:
             self.image = pygame.image.load(self.blue[1])
             print("Blue closes legs")
-            print(str(self.cur))
-            print(str(int(self.sec)))
+           
             self.animate = 1
-        elif self.animate == 1 and int(self.sec) % 2 == 1:
+        elif self.animate == 1 and  time % 250 == 1:
             self.image = pygame.image.load(self.blue[0])
             print("Blue opens legs")
-            print(str(self.cur))
-            print(str(int(self.sec)))
+       
             self.animate = 0
 
         self.x += (self.ai_settings.alien_speed_factor *
@@ -104,21 +103,22 @@ class Green(Alien):
         # Store the alien's exact position.
         self.x = float(self.rect.x)
         self.animate = 0
-    def update(self):
-        self.cur = time.time()
-        self.sec = self.cur
+        self.hit = True
 
-        if self.animate == 0 and int(self.sec) % 2 == 0:
+    def update(self, clock):
+        time = pygame.time.get_ticks()
+
+        if self.animate == 0 and time % 250 == 0:
             self.image = pygame.image.load(self.blue[1])
-            print("Blue closes legs")
-            print(str(self.cur))
-            print(str(int(self.sec)))
+            # print("Blue closes legs")
+            # print(str(self.cur))
+            # print(str(inttime))
             self.animate = 1
-        elif self.animate == 1 and int(self.sec) % 2 == 1:
+        elif self.animate == 1 and time % 250 == 1:
             self.image = pygame.image.load(self.blue[0])
-            print("Blue opens legs")
-            print(str(self.cur))
-            print(str(int(self.sec)))
+            # print("Blue opens legs")
+            # print(str(self.cur))
+            # print(str(inttime))
             self.animate = 0
 
         self.x += (self.ai_settings.alien_speed_factor *
@@ -144,21 +144,22 @@ class Red(Alien):
         # Store the alien's exact position.
         self.x = float(self.rect.x)
         self.animate = 0
-    def update(self):
-        self.cur = time.time()
-        self.sec = self.cur
+        self.hit = True
 
-        if self.animate == 0 and int(self.sec) % 2 == 0:
+    def update(self, clock):
+        time = pygame.time.get_ticks()
+
+        if self.animate == 0 and time % 250 == 0:
             self.image = pygame.image.load(self.blue[1])
-            print("Blue closes legs")
-            print(str(self.cur))
-            print(str(int(self.sec)))
+            # print("Blue closes legs")
+            # print(str(self.cur))
+            # print(str(inttime))
             self.animate = 1
-        elif self.animate == 1 and int(self.sec) % 2 == 1:
+        elif self.animate == 1 and time % 250 == 1:
             self.image = pygame.image.load(self.blue[0])
-            print("Blue opens legs")
-            print(str(self.cur))
-            print(str(int(self.sec)))
+            # print("Blue opens legs")
+            # print(str(self.cur))
+            # print(str(inttime))
             self.animate = 0
 
         self.x += (self.ai_settings.alien_speed_factor *

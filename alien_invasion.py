@@ -8,8 +8,15 @@ from scoreboard import Scoreboard
 from button import Button
 from ship import Ship
 import game_functions as gf
+clock = pygame.time.Clock()
+clock.tick(10)
+print("running ticks: " + str(clock.tick(60)))
+clock.get_fps()
+print("Running get fps" + str(clock.get_fps()))
+
 
 def run_game():
+
     # Initialize game and create a screen object.
     pygame.init()
     ai_settings = Settings()
@@ -47,14 +54,17 @@ def run_game():
             aliens, bullets, alien_bullets)
 
         if stats.game_active:
-            ship.update()
+            ship.update(clock)
+            # ship.explode(hit)
+            # if hit == True and ship.image == 'images/Ship Full.gif':
+            #     ship.center_ship()
             # We update the aliens’ positions after the bullets have been updated,
             # because we’ll soon be checking to see whether any bullets hit any aliens.
             gf.update_bullets(ai_settings, screen, stats, sb, ship, aliens,
                 bullets, alien_bullets)
             # print(len(bullets))
             gf.update_aliens(ai_settings, screen, stats, sb, ship, aliens, blue_aliens,
-                bullets, alien_bullets)
+                bullets, alien_bullets, clock)
 
         gf.update_screen(ai_settings, screen, stats, sb, ship, aliens,
                              bullets, alien_bullets, play_button)

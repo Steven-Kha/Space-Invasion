@@ -21,13 +21,13 @@ class Settings():
 
         # Alien Bullet settings
         self.a_bullet_speed = .3
-        self.a_bullet_width = 3
-        self.a_bullet_height = 15
+        self.a_bullet_width = 9
+        self.a_bullet_height = 30
         self.a_bullet_color = 0, 0, 0
         self.a_bullets_allowed = 5
 
         # Alien settings
-        self.alien_speed_factor = 1
+        self.alien_speed_factor = .8
         # drop speed is alien moving down
         self.fleet_drop_speed = 10
         # fleet_direction of 1 represents right; -1 represents left.
