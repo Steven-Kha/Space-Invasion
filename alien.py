@@ -36,11 +36,14 @@ class Alien(Sprite):
         self.hit = True
         print("Yellow destroyed")
 
+    def animate(self):
+        self.animate = 0
+
     def update(self, clock):
         """Move the alien right or left."""
-        if self.hit == True:
-            self.image = pygame.image.load('images/delete.png')
-            self.rect = self.rect = pygame.Rect(0, 0, 0, 0)
+
+              
+
 
         self.x += (self.ai_settings.alien_speed_factor *
                         self.ai_settings.fleet_direction)
@@ -79,6 +82,9 @@ class Blue(Alien):
 
     def explosion(self):
         self.hit = True
+        
+    def animate(self):
+        self.animate = 0
 
     def update(self, clock):
         time = pygame.time.get_ticks()
@@ -97,8 +103,8 @@ class Blue(Alien):
                 print("Blue explode 3")
                 self.animate = 3
             if self.animate == 3 and time % 125 == 1:
-                self.image = pygame.image.load('images/delete.png')
-                self.rect = pygame.Rect(0, 0, 0, 0)
+                  
+                 
                 self.hit = False
 
         else:
@@ -140,6 +146,9 @@ class Green(Alien):
         self.x = float(self.rect.x)
         self.animate = 0
         self.hit = False
+        
+    def animate(self):
+        self.animate = 0
 
     def explosion(self):
         self.hit = True
@@ -158,9 +167,7 @@ class Green(Alien):
                 self.image = pygame.image.load(self.boomG[2])
                 self.animate = 3
             if self.animate == 3 and time % 125 == 1:
-                self.image = pygame.image.load('images/delete.png')
-                self.rect = pygame.Rect(0, 0, 0, 0)
-
+                  
                 self.hit = False
         else:
             if self.animate == 0 and time % 250 == 0:
@@ -206,6 +213,9 @@ class Red(Alien):
 
     def explosion(self):
         self.hit = True
+        
+    def animate(self):
+        self.animate = 0
 
     def update(self, clock):
         time = pygame.time.get_ticks()
@@ -221,9 +231,7 @@ class Red(Alien):
                 self.image = pygame.image.load(self.boomR[2])
                 self.animate = 3
             if self.animate == 3 and time % 125 == 1:
-                self.image = pygame.image.load('images/delete.png')
-                self.rect = pygame.Rect(0, 0, 0, 0)
-
+                  
                 self.hit = False
         else:
             if self.animate == 0 and time % 250 == 0:

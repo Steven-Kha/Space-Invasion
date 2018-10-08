@@ -231,13 +231,20 @@ def check_bullet_alien_collisions(ai_settings, screen, stats, sb, ship,
     #         stats.score += ai_settings.alien_points * len(aliens)
     #         sb.prep_score()
     #     check_high_score(stats, sb)
-
+    time = pygame.time.get_ticks()
     for bullet in bullets.copy():
         for alien in aliens.copy():
             if bullet.rect.colliderect(alien):
-                bullets.remove(bullet)
+                # bullets.remove(bullet)
                 alien.explosion()
                 stats.score += ai_settings.alien_points * len(aliens)
+                ai_settings.destroyed += 1
+
+                if time % 10 == 0:
+                    print ("Does this actually work?")
+                    aliens.remove(alien)
+                print ("aliens: " + str(len(aliens)))
+                print("destroyed: " + str(ai_settings.destroyed))
                 sb.prep_score()
 
                 # aliens.remove(alien)
@@ -251,7 +258,11 @@ def check_bullet_alien_collisions(ai_settings, screen, stats, sb, ship,
 
 
     if len(aliens) == 0:
+
+        print("destroyed: " + str(ai_settings.destroyed))
         # If the entire fleet is destroyed, start a new level.
+        for alien in aliens.copy():
+            alien.animate()
         bullets.empty()
         ai_settings.increase_speed()
         if ai_settings.a_bullets_allowed < 10:
