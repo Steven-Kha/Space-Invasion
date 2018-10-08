@@ -1,6 +1,7 @@
 #alien 267
 
 import pygame
+from ufo import UFO
 from pygame.sprite import Group
 from settings import Settings
 from game_stats import GameStats
@@ -58,6 +59,8 @@ def run_game():
 
     ship = Ship(ai_settings, screen)
 
+    ufo = UFO(ai_settings, screen)
+
     # Make a group to store bullets in.
     # blue = Blue(ai_settings, screen)
     # red = Red(ai_settings, screen)
@@ -81,6 +84,7 @@ def run_game():
 
         if stats.game_active:
             ship.update(clock)
+            ufo.update()
             # ship.explode(hit)
             # if hit == True and ship.image == 'images/Ship Full.gif':
             #     ship.center_ship()
@@ -93,7 +97,7 @@ def run_game():
                 bullets, alien_bullets)
 
         gf.update_screen(ai_settings, screen, stats, sb, ship, aliens,
-                         title, bullets, alien_bullets, play_button,
+                         ufo, title, bullets, alien_bullets, play_button,
                          hi_button)
 
 run_game()

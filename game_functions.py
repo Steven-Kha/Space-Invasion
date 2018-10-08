@@ -122,21 +122,21 @@ def create_alien(ai_settings, screen, aliens, alien_number, row_number, alien_bu
     #     alien.rect.x = alien.x
     #     alien.rect.y = alien.rect.height + 2 * alien.rect.height * row_number
     #     aliens.add(alien)
-    if row_number == 0:
+    if row_number == 1:
         blue = Blue(ai_settings, screen)
         blue_width = blue.rect.width
         blue.x = blue_width + 2 * blue_width * alien_number
         blue.rect.x = blue.x
         blue.rect.y = blue.rect.height + 2 * blue.rect.height * row_number
         aliens.add(blue)
-    elif row_number == 1:
+    elif row_number == 2:
         green = Green(ai_settings, screen)
         green_width = green.rect.width
         green.x = green_width + 2 * green_width * alien_number
         green.rect.x = green.x
         green.rect.y = green.rect.height + 2 * green.rect.height * row_number
         aliens.add(green)
-    elif row_number == 2:
+    elif row_number == 3:
         red = Red(ai_settings, screen)
         red_width = red.rect.width
         red.x = red_width + 2 * red_width * alien_number
@@ -406,7 +406,7 @@ def check_play_button(ai_settings, screen, stats, sb, play_button, ship,
         create_fleet(ai_settings, screen, ship, aliens, alien_bullets)
         ship.center_ship()
 
-def update_screen(ai_settings, screen, stats, sb, ship, aliens, title, bullets,
+def update_screen(ai_settings, screen, stats, sb, ship, aliens, ufo, title, bullets,
                 alien_bullets, play_button, hi_buttton):
     """Update images on the screen and flip to the new screen."""
     # Redraw the screen during each pass through the loop.
@@ -421,6 +421,7 @@ def update_screen(ai_settings, screen, stats, sb, ship, aliens, title, bullets,
 
     ship.blitme()
     aliens.draw(screen)
+    # ufo.blitme()
 
     # Draw the score information.
     sb.show_score()
@@ -438,7 +439,7 @@ def update_screen(ai_settings, screen, stats, sb, ship, aliens, title, bullets,
             title.prep_high_label("")
 
         else:
-            print("TOASTY")
+            # print("TOASTY")
             title.prep_high_label("Hi Score:")
             title.prep_blue_msg(str(stats.high_score))
             title.prep_red_msg(str(stats.high_score3))
