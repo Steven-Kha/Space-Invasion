@@ -6,6 +6,7 @@ from settings import Settings
 from game_stats import GameStats
 from scoreboard import Scoreboard
 from button import Button
+from button import Button2
 from ship import Ship
 from title import Title
 import game_functions as gf
@@ -34,13 +35,17 @@ def run_game():
     # Make the Play button.
     play_button = Button(ai_settings, screen, "Play")
 
+    hi_button =  Button2(ai_settings, screen)
+
     # Create an instance to store game statistics.
     stats = GameStats(ai_settings)
     # foo = open("foo.txt", "w")
     # foo.write("0")
     # foo.close()
     fo = open("foo.txt", "r+")
-    stats.high_score = int(fo.read(10))
+    stats.high_score = int(fo.readline())
+    stats.high_score2 = int(fo.readline())
+    stats.high_score3 = int(fo.readline())
     fo.close()
     print("hiscore: " + str(stats.high_score))
 
@@ -72,7 +77,7 @@ def run_game():
         title.prep_blue_msg("")
         title.prep_red_msg("")
         title.prep_green_msg("")
-        gf.check_events(ai_settings, screen, stats, sb, play_button, ship,
+        gf.check_events(ai_settings, screen, stats, sb, play_button, hi_button, ship,
             aliens, bullets, alien_bullets)
 
         if stats.game_active:
@@ -89,6 +94,7 @@ def run_game():
                 bullets, alien_bullets)
 
         gf.update_screen(ai_settings, screen, stats, sb, ship, aliens,
-                         title, bullets, alien_bullets, play_button)
+                         title, bullets, alien_bullets, play_button,
+                         hi_button)
 
 run_game()

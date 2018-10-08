@@ -23,7 +23,7 @@ class Title:
         self.prep_red_msg(msg)
         self.prep_green_msg(msg)
         self.prep_high_score(msg)
-        self.prep_high_label()
+        self.prep_high_label(msg)
 
     def prep_title(self, msg):
         title_str = msg
@@ -88,14 +88,14 @@ class Title:
         self.green_image_rect.centerx = self.screen_rect.centerx - 55
         self.green_image_rect.centery = self.screen_rect.centery - 90
 
-    def prep_high_label(self):
-        high_str = "Hi Score:"
+    def prep_high_label(self, msg):
+        high_str = msg
         self.high_str_image = self.font.render(high_str, True,
                    self.title_color, self.ai_settings.start_color)
 
         self.high_str_rect = self.high_str_image.get_rect()
         self.high_str_rect.centerx = self.screen_rect.centerx
-        self.high_str_rect.centery = self.screen_rect.bottom - 60
+        self.high_str_rect.centery = self.screen_rect.centery - 200
 
     def prep_high_score(self, msg):
         high_score_str = str(msg)

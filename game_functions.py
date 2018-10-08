@@ -10,17 +10,57 @@ from alien import Blue
 from alien import Green
 from alien import Red
 
-def check_high_score(stats, sb):
-    """Check to see if there's a new high score."""
-
+def update_high_score(stats, sb):
     if stats.score > stats.high_score:
+        # sb.prep_high_score()
+        temp = stats.high_score
+        temp2 = stats.high_score2
+
         stats.high_score = stats.score
+        stats.high_score2 = temp
+        stats.high_score3 = temp2
+
         hi_score = str(stats.high_score)
+        hi_score2 = str(stats.high_score2)
+        hi_score3 = str(stats.high_score3)
+
         sb.prep_high_score()
         foo = open("foo.txt", "w")
-        foo.write(hi_score)
+        foo.write(hi_score + '\n' + hi_score2 + '\n' +
+                  hi_score3)
+        foo.close()
+    elif stats.score > stats.high_score2:
+        temp = stats.high_score2
+
+        stats.high_score2 = stats.score
+        stats.high_score3 = temp
+
+        hi_score = str(stats.high_score)
+        hi_score2 = str(stats.high_score2)
+        hi_score3 = str(stats.high_score3)
+        sb.prep_high_score()
+        foo = open("foo.txt", "w")
+        foo.write(hi_score + '\n' + hi_score2 + '\n' +
+                  hi_score3)
+        foo.close()
+    elif stats.score > stats.high_score3:
+        stats.high_score3 = stats.score
+
+        hi_score = str(stats.high_score)
+        hi_score2 = str(stats.high_score2)
+        hi_score3 = str(stats.high_score3)
+        sb.prep_high_score()
+        foo = open("foo.txt", "w")
+        foo.write(hi_score + '\n' + hi_score2 + '\n' +
+                  hi_score3)
         foo.close()
 
+
+def check_high_score(stats, sb):
+    """Check to see if there's a new high score."""
+    if stats.score > stats.high_score:
+        stats.high_score = stats.score
+        sb.prep_high_score()
 
 
 def ship_hit(ai_settings, screen, stats, sb, ship, aliens, bullets, alien_bullets):
@@ -221,6 +261,7 @@ def check_bullet_ship_collisions(ai_settings, screen, stats, sb, ship,
                 sb.prep_ships()
 
             else:
+                update_high_score(stats, sb)
                 stats.game_active = False
                 pygame.mouse.set_visible(True)
 
@@ -304,7 +345,7 @@ def check_keyup_events(event, ship):
     elif event.key == pygame.K_LEFT:
         ship.moving_left = False
 
-def check_events(ai_settings, screen, stats, sb, play_button, ship, aliens,
+def check_events(ai_settings, screen, stats, sb, play_button, hi_button, ship, aliens,
         bullets, alien_bullets):
     """Respond to keypresses and mouse events."""
 
@@ -317,12 +358,23 @@ def check_events(ai_settings, screen, stats, sb, play_button, ship, aliens,
             check_play_button(ai_settings, screen, stats, sb, play_button,
                               ship, aliens, bullets, alien_bullets, mouse_x, mouse_y)
 
+            check_hiscore_button(hi_button, ai_settings, screen,
+                                 stats, sb, mouse_x, mouse_y)
+
         elif event.type == pygame.KEYDOWN:
             #new function to make this function easier to add code
             check_keydown_events(event, ai_settings, screen, ship, bullets)
 
         elif event.type == pygame.KEYUP:
             check_keyup_events(event, ship)
+
+def check_hiscore_button(hi_button, ai_settings, screen,
+                         stats, sb, mouse_x, mouse_y):
+    button_clicked = hi_button.rect.collidepoint(mouse_x, mouse_y)
+    if button_clicked and not stats.game_active:
+        stats.hiscore_active = True
+        print("TOASTY")
+
 
 def check_play_button(ai_settings, screen, stats, sb, play_button, ship,
         aliens, bullets, alien_bullets, mouse_x, mouse_y):
@@ -334,6 +386,7 @@ def check_play_button(ai_settings, screen, stats, sb, play_button, ship,
 
         stats.reset_stats()
         stats.game_active = True
+        stats.hiscore_active = False
 
         # Hide the mouse cursor
         pygame.mouse.set_visible(False)
@@ -362,7 +415,7 @@ def check_play_button(ai_settings, screen, stats, sb, play_button, ship,
         ship.center_ship()
 
 def update_screen(ai_settings, screen, stats, sb, ship, aliens, title, bullets,
-                alien_bullets, play_button):
+                alien_bullets, play_button, hi_buttton):
     """Update images on the screen and flip to the new screen."""
     # Redraw the screen during each pass through the loop.
     screen.fill(ai_settings.bg_color)
@@ -386,14 +439,22 @@ def update_screen(ai_settings, screen, stats, sb, ship, aliens, title, bullets,
         screen.fill(ai_settings.start_color)
         title.prep_title("SPACE")
         title.prep_rules("INVADERS")
-        title.prep_blue_msg("30 PTS")
-        title.prep_red_msg("10 PTS")
-        title.prep_green_msg("20 PTS")
+        if stats.hiscore_active == False:
+            title.prep_blue_msg("30 PTS")
+            title.prep_red_msg("10 PTS")
+            title.prep_green_msg("20 PTS")
+            title.prep_high_label("")
+
+        else:
+            print("TOASTY")
+            title.prep_high_label("Hi Score:")
+            title.prep_blue_msg(str(stats.high_score))
+            title.prep_red_msg(str(stats.high_score3))
+            title.prep_green_msg(str(stats.high_score2))
         title.prep_high_score(str(stats.high_score))
 
         title.draw_button()
-
-
+        hi_buttton.draw_button()
         play_button.draw_button()
 
     # Make the most recently drawn screen visible.
