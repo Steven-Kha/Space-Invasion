@@ -337,6 +337,14 @@ def check_play_button(ai_settings, screen, stats, sb, play_button, ship,
         sb.prep_level()
         sb.prep_ships()
 
+        ai_settings.a_bullets_allowed = 5
+        ai_settings.a_bullet_height = 30
+        ai_settings.a_bullet_width = 9
+        ai_settings.a_bullet_speed = .3
+        ai_settings.ship_speed_factor = 1.5
+        ai_settings.bullet_speed_factor = 3
+        ai_settings.alien_speed_factor = .8
+
         # Empty the list of aliens and bullets.
         aliens.empty()
         bullets.empty()
